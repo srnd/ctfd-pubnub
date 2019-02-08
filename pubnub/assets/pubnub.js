@@ -28,7 +28,7 @@ if (document.location.pathname === "/challenges") {
 
             if ($("#challenge-now-viewing").length == 0) {
                 // Insert "now viewing" location.
-                $('<div id="challenge-now-viewing" class="text-center p3"></div>').insertBefore($('#challenge .challenge-name'));
+                $('<div id="challenge-now-viewing" class="text-center p3"></div>').insertAfter($('#challenge .submit-row'));
             }
 
             $('#challenge-now-viewing').text(string);
@@ -144,7 +144,7 @@ if (document.location.pathname === "/challenges") {
 
     var getFromHash = function() {
         if (document.location.hash && document.location.hash.substring(1)) {
-            var hashChal = standardGetFromHash(document.location.hash.substring(1));
+            var hashChal = standardGetFromHash(decodeURIComponent(document.location.hash.substring(1)));
             if (hashChal) {
                 challengeVisible(hashChal.id);
             } else {
